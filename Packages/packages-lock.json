@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.custom.coloredfolders": {
+      "version": "https://github.com/DominikKoperkiewicz/ColoredFolders-Unity-Package.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "ceb61b48106979c69accb421cba302bad119e7db"
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,
