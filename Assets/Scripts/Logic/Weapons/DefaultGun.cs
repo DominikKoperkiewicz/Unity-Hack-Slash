@@ -1,26 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using Logic.Interfaces;
 using UnityEngine;
 
-public class DefaultGun : Weapon
+namespace Logic.Weapons
 {
-    [SerializeField]
-    private Transform bulletPrefab;
-    private float cooldown = 0.0f;
-
-    private void Update()
+    public class DefaultGun : Weapon
     {
-        cooldown -= Time.deltaTime;
-    }
+        [SerializeField]
+        private Transform bulletPrefab;
+        private float cooldown = 0.0f;
 
-    public override void Attack(IDamageable attackTarget) {
-        if (cooldown > 0f) return;
+        private void Update()
+        {
+            cooldown -= Time.deltaTime;
+        }
 
-        cooldown = 1.00f;
-        Transform bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        public override void Attack(IDamageable attackTarget) {
+            if (cooldown > 0f) return;
 
-        bullet.gameObject.GetComponent<Bullet>()?.SetOptions( 30.0f, 30, attackTarget);
+            cooldown = 1.00f;
+            Transform bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
+            bullet.gameObject.GetComponent<Bullet>()?.SetOptions( 30.0f, 30, attackTarget);
+
+        }
     }
 }

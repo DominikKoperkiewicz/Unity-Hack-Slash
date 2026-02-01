@@ -1,6 +1,7 @@
-using UnityEngine;
-
-public interface IInteractable
+namespace Logic.Interfaces
 {
-    public void Interact();
+    public interface IInteractable
+    {
+        public void Interact();
+    }
 }

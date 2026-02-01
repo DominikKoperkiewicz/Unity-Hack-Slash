@@ -1,20 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using Logic.Interfaces;
 using UnityEngine;
 
-public class Chest : MonoBehaviour, IInteractable, IDamageable
+namespace Logic.Chests
 {
-    public Health Health { get; private set; } = new Health(350);
-
-    public void Damage(int damage)
+    public class Chest : MonoBehaviour, IInteractable, IDamageable
     {
-        Health.Damage(damage);
-    }
+        public Health.Health Health { get; private set; } = new Health.Health(350);
 
-    public void Interact()
-    {
-        Debug.Log("Chest open");
-    }
+        public void Damage(int damage)
+        {
+            Health.Damage(damage);
+        }
+
+        public void Interact()
+        {
+            Debug.Log("Chest open");
+        }
 
     
+    }
 }

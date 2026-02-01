@@ -1,42 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OutlineManager : MonoBehaviour
+namespace UI.Outline
 {
-    private Outline currentHoveredObject = null;
-    private void FixedUpdate()
+    public class OutlineManager : MonoBehaviour
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        int layerMask = 1 << 6;
-
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+        private Outline currentHoveredObject = null;
+        private void FixedUpdate()
         {
-            Outline hitObject = hit.collider.gameObject.GetComponent<Outline>();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            int layerMask = 1 << 6;
 
-            if (currentHoveredObject != hitObject)
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+            {
+                Outline hitObject = hit.collider.gameObject.GetComponent<Outline>();
+
+                if (currentHoveredObject != hitObject)
+                {
+                    if (currentHoveredObject != null)
+                    {
+                        currentHoveredObject.enabled = false;
+                    }
+
+                    if (hitObject != null)
+                    {
+                        hitObject.enabled = true;
+                    }
+
+                    currentHoveredObject = hitObject;
+                }
+            }
+            else
             {
                 if (currentHoveredObject != null)
                 {
                     currentHoveredObject.enabled = false;
+                    currentHoveredObject = null;
                 }
-
-                if (hitObject != null)
-                {
-                    hitObject.enabled = true;
-                }
-
-                currentHoveredObject = hitObject;
-            }
-        }
-        else
-        {
-            if (currentHoveredObject != null)
-            {
-                currentHoveredObject.enabled = false;
-                currentHoveredObject = null;
             }
         }
     }

@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Health
+namespace Logic.Health
 {
-    private int currentHealth = 100;
-    public int CurrentHealth { get { return currentHealth; } set { currentHealth = Mathf.Clamp(value, 0, maxHealth); } }
-
-    private int maxHealth = 100;
-    public int MaxHealth { get { return maxHealth; } set { maxHealth = Mathf.Max(1, value); } }
-
-    public Health(int fullHealth)
+    public class Health
     {
-        MaxHealth = fullHealth;
-        CurrentHealth = fullHealth;
-    }
+        private int currentHealth = 100;
+        public int CurrentHealth { get { return currentHealth; } set { currentHealth = Mathf.Clamp(value, 0, maxHealth); } }
 
-    public void Damage(int damage) { 
-        CurrentHealth = CurrentHealth - damage;
+        private int maxHealth = 100;
+        public int MaxHealth { get { return maxHealth; } set { maxHealth = Mathf.Max(1, value); } }
+
+        public Health(int fullHealth)
+        {
+            MaxHealth = fullHealth;
+            CurrentHealth = fullHealth;
+        }
+
+        public void Damage(int damage) { 
+            CurrentHealth = CurrentHealth - damage;
+        }
     }
 }

@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using Logic.Interfaces;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable
+namespace Logic.Enemies
 {
-    public Health Health { get; protected set; } = new Health(100);
-
-    public void Damage(int damage)
+    public class Enemy : MonoBehaviour, IDamageable
     {
-        Health.Damage(damage);
-    }
+        public Health.Health Health { get; protected set; } = new Health.Health(100);
 
+        public void Damage(int damage)
+        {
+            Health.Damage(damage);
+        }
+
+    }
 }

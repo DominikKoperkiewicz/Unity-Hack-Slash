@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using Logic.Interfaces;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+namespace Logic.Weapons
 {
-    private float damage;
-    private float range;
-    private float attackSpeed;
+    public abstract class Weapon : MonoBehaviour
+    {
+        private float damage;
+        private float range;
+        private float attackSpeed;
 
-    public abstract void Attack(IDamageable attackTarget);
+        public abstract void Attack(IDamageable attackTarget);
+    }
 }

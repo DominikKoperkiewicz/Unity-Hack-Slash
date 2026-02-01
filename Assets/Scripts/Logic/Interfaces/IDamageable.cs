@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public interface IDamageable
+namespace Logic.Interfaces
 {
-    Transform transform { get; }
-    Health Health { get; }
+    public interface IDamageable
+    {
+        Transform transform { get; }
+        Health.Health Health { get; }
 
-    void Damage(int damage);
+        void Damage(int damage);
+    }
 }

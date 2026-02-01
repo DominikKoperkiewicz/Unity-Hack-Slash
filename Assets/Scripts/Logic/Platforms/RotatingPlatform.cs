@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RotatingPlatform : MonoBehaviour
+namespace Logic.Platforms
 {
-    public float rotationSpeed = 3000f;  
-
-    private float mouseX;
-
-    void Update()
+    public class RotatingPlatform : MonoBehaviour
     {
-        if (Input.GetMouseButton(0))
+        public float rotationSpeed = 3000f;  
+
+        private float mouseX;
+
+        void Update()
         {
-            mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
-            transform.Rotate(Vector3.up, -mouseX, Space.World);
+            if (Input.GetMouseButton(0))
+            {
+                mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+                transform.Rotate(Vector3.up, -mouseX, Space.World);
+            }
         }
     }
 }
