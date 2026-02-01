@@ -1,0 +1,16 @@
+{
+    "name": "Project.Logic",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8486a63581608ba428ef3fd0eba5c488"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
